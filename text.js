@@ -1,6 +1,6 @@
 function rishika()
 {
-    let text= document.getElementById(" text ")
+    let text= document.getElementById("text")
     let text1=document.getElementById("text1")
     if(text.style.display=="none")
     {

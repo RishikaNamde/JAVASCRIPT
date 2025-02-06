@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+ <STYLE>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height:100vh;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        overflow-y:hidden;
+        
+    }
+    
+    .calculator {
+        background: black;
+        color: white;
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    #display {
+        width: 100%;
+        height: 50px;
+        background: #333;
+        color: white;
+        font-size: 30px;
+        text-align: right;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 1px;
+       
+    }
+    
+    table {
+        width: 100%;
+    }
+    
+    td {
+        width: 25%;
+        padding: 20px;
+        font-size: 1.5em;
+        text-align: center;
+        cursor: pointer;
+        background: rgb(63, 62, 62);
+        border-radius: 5px;
+       
+    }
+    
+    td:hover {
+        background:rgb(35, 34, 34);
+    }
+    
+    .op {
+        background:orange;
+        color: white;
+    }
+    
+    .op:hover {
+        background: orange;
+    }
+    
+    .equal {
+        background: rgb(140, 228, 8);
+        color: white;
+    }
+    
+    .equal:hover {
+        background: #218838;
+    }
+    
+    .clear {
+        background: red;
+        color: white;
+    }
+    
+    .clear:hover {
+        background: rgb(227, 83, 83);
+    }
+    
+    .delete {
+        background: #6c757d;
+        color: white;
+    }
+    
+    .delete:hover {
+        background: #5a6268;
+    }
+    </STYle>
+    <div class="calculator">
+        <h1>Calculator</h1>
+        <div id="display"></div>
+        <table border="1" align="center" cellspacing="4px" cellpadding="4px">
+            <tr>
+                <td onclick="cal('7')">7</td>
+                <td onclick="cal('8')">8</td>
+                <td onclick="cal('9')">9</td>
+                <td class="op" onclick="cal('/')">/</td>
+            </tr>
+            <tr>
+                <td onclick="cal('4')">4</td>
+                <td onclick="cal('5')">5</td>
+                <td onclick="cal('6')">6</td>
+                <td class="op" onclick="cal('*')">*</td>
+            </tr>
+            <tr>
+                <td onclick="cal('1')">1</td>
+                <td onclick="cal('2')">2</td>
+                <td onclick="cal('3')">3</td>
+                <td class="op" onclick="cal('-')">-</td>
+            </tr>
+            <tr>
+                <td onclick="cal('0')">0</td>
+                <td class="delete" onclick="ac()">AC</td>
+                <td class="equal"  onclick="res()">=</td>
+                <td class="op"onclick="cal('+')">+</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="clear" onclick="clearDisplay()">C</td>
+                <td onclick="sqr()" class="delete">sqr</td>
+                <td class="delete" onclick="del()">DEL</td>
+                
+            </tr>
+            
+        </table>
+    </div>
+    <script src="calculator.js"></script>
+</body>
+</html> 
