@@ -10,12 +10,12 @@ function rishi()
 
  
  // -----------------------------CHECKING NUMBER IS EVEN OR ODD :--------------------------
-   let a= prompt("enter the number")
- if(a%2==0)
-  alert("even no")
+//    let a= prompt("enter the number")
+//  if(a%2==0)
+//   alert("even no")
 
-else
- alert("odd no")
+// else
+//  alert("odd no")
 //--------------------------------ADDITION OF TWO NUMBERS--------------------------------------
 //  let a= parseInt(prompt("enter no 1:-"));
 //  let b= Number(prompt("enter no 2 :-"));
@@ -26,7 +26,7 @@ else
 // if(a>=18)
 //     alert("you can vote")
 // else
-// alert("you cant vote")
+// alert("you can't vote")
 //----------------------------SAME QUESTION USING TERNARY OPERATOR-------------------------
 //condition ? "on true": "on false":
 //let a=(prompt("enter the age:-"));
@@ -34,9 +34,9 @@ else
 
 //---------------------------website------------------------------------------
 // let a=confirm("do you like our website")
-// alert("thanks")
-// let b=confirm("do you like our website")
 // alert("sorry")
+// let b=confirm("do you like our website")
+// alert("thanks")
 // ====================================== 1 to  10 counting================================
 // let i;
 // for(i=1;i<=10;++i)
@@ -52,7 +52,7 @@ else
 
 
 // ====================================que=4 MARKS ABOVE 33===================
-//let marks=parseFloat(prompt("enter the marks"))
+// let marks=parseFloat(prompt("enter the marks"))
 // if(marks>=33)
 //   alert("pass")
 // else{
@@ -87,11 +87,11 @@ else
 
 
 //================================QUE=9==================================
-// let ans;
-// do{
-//    ans=parseInt(prompt("enter the number"))
-// }
-//    while(ans<=10)
+//  let ans;
+//  do{
+//     ans=parseInt(prompt("enter the number"))
+//  }
+//     while(ans<=10)
   
 }
 
@@ -128,15 +128,15 @@ else
 
 // ====================================que==================================
 
-// let ans=parseFloat(prompt("enter the number"))
-// let dis=confirm("do you have coupen")
-// if(dis){
-//   alert(ans*0.9)
+let ans=parseFloat(prompt("enter the number"))
+let dis=confirm("do you have coupen")
+if(dis){
+  alert(ans*0.9)
 
-// }
-// else{
-//   alert(ans)
-// }
+}
+else{
+  alert(ans)
+}
 
 // }
 rishi()

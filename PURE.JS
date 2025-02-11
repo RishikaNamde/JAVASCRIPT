@@ -13,21 +13,21 @@
 
 
 
-// let inpbox=document.querySelector("#inpbox")
-// inpbox.addEventListener("keydown",(e)=>{
-//     console.log(e.key);
-// })
+let inpbox=document.querySelector("#inpbox")
+inpbox.addEventListener("keydown",(e)=>{
+    console.log(e.key);
+})
 // inpbox.addEventListener("input",()=>{
-//     // console.log(inpbox.value);
+//     console.log(inpbox.value);
 // })
 
 
 
-let hello = document.querySelector("#inpbox");
-let okk = document.querySelector("#display");
+// let hello = document.querySelector("#inpbox");
+// let okk = document.querySelector("#display");
 
-inpbox.addEventListener("input", () => {
-    okk.innerHTML = inpbox.value;
-});
+// inpbox.addEventListener("input", () => {
+//     okk.innerHTML = inpbox.value;
+// });
 
 

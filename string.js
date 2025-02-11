@@ -1,13 +1,13 @@
-function rishika()
-{
-//     alert("hello guys")
+// function rishika()
+// {
+//      alert("hello guys")
 // }
 // function rishi()
 // {
 //     alert("how are you")
 // }
-// function reshu()
-// {
+function reshu()
+{
 //     alert("where do you live")
 // document.write("<h1> Hello </h1>")
 // let text ="This is string";
@@ -17,11 +17,11 @@ function rishika()
 
 
 
-// let text="javascriptisEasy";
+let text="javascriptisEasy";
 // document.write(text.slice(0,14)) 
-// let text1="rishika";
-// let text2="Namdev";
-// document.write(text1.concat(text))                    // it will contact and will give===rishikajavascriptiseasy
+let text1="rishika";
+let text2="Namdev";
+document.write(text1.concat(text2))                    // it will contact and will give===rishikajavascriptiseasy
 
 
 // let text="I am javascript learning javascript and javascript is good";

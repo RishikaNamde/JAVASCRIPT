@@ -1,22 +1,23 @@
-// let obj={
-//     name:"rishika",
-//     age:"21",
-//     city:"vidisha",
-//     // city:"vidisha"
-//     Games:["badminton","circket","hockey"],
-//     cybrom:function()
-//     {
-//         console.log(`hello ${this.age}`);
-//     }
+let obj={
+    name:"rishika",
+    age:"21",
+    city:"vidisha",
+    // city:"vidisha"
+    Games:["badminton","circket","hockey"],
+    cybrom:function()
+    {
+        console.log(`hello ${this.age}`);
+    }
     
-// }
+}
 // console.(arr1[1])
 // obj.email="rishika@gmail.com";   //INSERTING THE DATA
 // obj.city="bhopal";               //UPDATING THE DATA
 // delete obj.city                 //DELETEING THE OBJECT
-// console.log(obj)
+console.log(obj)
 // obj.cybrom()
 // console.log(obj.Games[2])
+
 
 //object has 2 methods :-
 //1. destructring of object :- makes the code clearner and eaisier to read ,allow quickaccess to the properties
