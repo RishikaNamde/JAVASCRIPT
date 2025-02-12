@@ -1,41 +1,108 @@
-button{
-    display: flex;
-    font-size: 30px;
-    color: black;
-    background-color: aqua;
+/* Centering the Dice Box */
+#box1 {
+    opacity: 1; /* Temporarily make it visible for testing */
 }
+
+.dice-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px; /* Increased size */
+    height: 200px;
+}
+
+/* Dice Box Styling */
 #box1, #box2, #box3, #box4, #box5, #box6 {
-    width: 300px;
-    height: 300px;
-    border: 1px solid black;
+    width: 200px; /* Bigger dice */
+    height: 200px;
+    border: 5px solid black;
+    border-radius: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-size: cover;
-    background-position: center;
+    background-color: white;
+    position: absolute;
+    opacity: 0; /* Initially hidden */
+}
+
+/* Common Dot Styling */
+#box1 div, #box2 div, #box3 div, #box4 div, #box5 div, #box6 div {
+    width: 30px; /* Bigger dots */
+    height: 30px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+/* Adjusting Dice Faces Layout */
+#box2, #box3, #box4, #box5, #box6 {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+/* Face 2 */
+#box2 {
+    grid-template-columns: 1fr 1fr;
+}
+#box2 div:first-child { justify-self: start; }
+#box2 div:last-child { justify-self: end; }
+
+/* ✅ Fixed Face 3 (Three dots in a straight line) */
+#box3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Proper spacing */
+    align-items: center; /* Centered dots */
+    height: 100%;
+}
+
+/* Face 4 */
+#box4 {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+/* Face 5 */
+#box5 {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    position: relative;
+}
+#box5 div:nth-child(5) {
     position: absolute;
     left: 50%;
-    top: 25%;
-    transform: translateX(-50%);
-    opacity: 0; 
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
-#box1 {
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfU9-X8MCvzIu3eVEQLi6-T8rakf-XNieg1g&s'); /* Replace with your image path */
-}
-#box2 {
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn9DDOH-0D-NAl4n1NIYLXdmZ9gpsvh-ekqA&s');
-}
-#box3 {
-    background-image: url('https://static-00.iconduck.com/assets.00/dice-six-faces-two-icon-256x256-fvq3qpra.png');
-}
-#box4 {
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVXwMKSGhAJ9dQOazYfcLGZET76MjGl4S_iCLqRM4KBqA98jBKqGMWwVFYc5pXW3JRPYA&usqp=CAU');
-}
-#box5 {
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ16jpMhtg0De8yiMMYnnNdu7DVnHgiNR3Bkwnsrt0XsXrpsn2J_Igac5aA0rU9EEKIPUM&usqp=CAU');
-}
+/* ✅ Fixed Face 6 (Properly aligned in grid) */
 #box6 {
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkenzvXkB-jtJaulzmiSEFfMoUlKVUGt4Oxw&s');
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-rows: repeat(3, 1fr);  /* 3 rows */
+    gap: 20px; /* Ensures proper spacing */
+    justify-items: center; 
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
+/* Roll Button Styling */
+button {
+    position: absolute;
+    left: 50%;
+    top: 35%;
+    transform: translateX(-50%);
+    padding: 12px 25px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    background-color: blueviolet;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: darkviolet;
+}
