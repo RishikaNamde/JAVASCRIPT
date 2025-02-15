@@ -12,15 +12,15 @@ let set = () => {
     let Show = document.querySelector("#show");
     let music = document.querySelector("#music");
 
-    if (!inptime) {
-        Show.innerHTML = "Please enter a valid time!";
-        return;
-    }
+    // if (!inptime) {
+    //     Show.innerHTML = "Please enter a valid time!";
+    //     return;
+    // }
 
     
-    if (alarmInterval) {
-        clearInterval(alarmInterval);
-    }
+    // if (alarmInterval) {
+    //     clearInterval(alarmInterval);
+    // }
 
     Show.innerHTML = "Alarm is set for " + inptime;
 
