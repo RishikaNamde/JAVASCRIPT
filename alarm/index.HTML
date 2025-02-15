@@ -3,54 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Alarm Clock</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin-top: 50px;
-            
         }
-        
+
         .container {
-            background:yellow;
+            background:black;
             padding: 20px;
             display: inline-block;
             border-radius: 50px;
-            height: 300px;
-            width: 300px;
+            height: 350px;
+            width: 350px;
         }
-        
-        h1 {
-            margin-bottom: 60px;
+
+        img {
+            width: 300px; /* Adjust size as needed */
+            height: 200px;
+            margin-bottom: 10px;
+        }
+
+        input {
+            font-size: 20px;
+            color: black;
+        }
+
+        button {
+            font-size: 20px;
+            color: black;
+            background-color: white;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: white;
             
         }
-     input{
-        font-size: 20px;
-     }
-     button{
-        font-size: 20px;
-     }
-     h2{
-        font-size: 30px;
-     }
-     
-        
+        h1{
+            color: white;
+        }
     </style>
-    
 </head>
 <body>
-   
+
     <div class="container">
-        <h1>- Alarm Clock -</h1>
-        <h1 id="ageDisplay"></h1>
-    <h1 id="time"></h1>
+        <img src="https://img.pikbest.com/ai/illus_our/20230427/8268169a6dc0acc8c37aec3ad04d21b8.jpg!w700wp" alt="">
+        <h1 id="time" ></h1>
         <h2 id="show"></h2>
         <input type="time" id="curntime">
         <button onclick="set()">Set Alarm</button>
-        <!-- <p id="alarm-status"></p> -->
-        <audio id="music" src="loud_alarm_sound.mp3"></audio>
-    </div>
+        <audio id="music" src="loud_alarm_sound.mp3"></audio>    </div>
+
     <script src="./CLOCK.JS"></script>
 </body>
 </html>
