@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+    <style>
+        /* Background Styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url("https://www.flightnetwork.com/system/image/open_graph_default_image.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        /* Signup Form */
+        #form {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 400px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        /* Input Fields */
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: 0.3s ease-in-out;
+        }
+
+        input:focus {
+            border-color: blue;
+            box-shadow: 0px 0px 5px rgba(0, 0, 255, 0.5);
+        }
+
+        input.shake {
+            animation: shake 0.3s ease-in-out;
+        }
+
+        /* Submit Button */
+        input[type="submit"] {
+            background-color: blue;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            border: none;
+            padding: 10px;
+            margin-top: 10px;
+            transition: 0.3s ease-in-out;
+        }
+
+        input[type="submit"]:hover {
+            background-color: darkblue;
+        }
+
+        /* Error Messages */
+        p {
+            font-style: italic;
+            font-size: 17px;
+            color: red;
+            margin: 5px 0;
+            height: auto;
+            text-align: left;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+        }
+
+        @keyframes movePlane {
+            0% { transform: translateX(-100px) translateY(0) rotate(5deg); }
+            50% { transform: translateX(100vw) translateY(50px) rotate(-5deg); }
+            100% { transform: translateX(-100px) translateY(0) rotate(5deg); }
+        }
+
+        /* Plane Animation */
+        /*.plane {
+            position: absolute;
+            top: 20%;
+            left: -100px;
+            width: 400px;
+            height: 100px;
+            animation: movePlane 10s infinite;
+        }*/
+    </style>
+</head>
+<body>
+
+    <!-- Airplane Animation -->
+    <!-- <img src="PROJECT/aeroplane.png" class="plane"> -->
+
+    <div id="form">
+        <form id="signup-form">
+            <h1>Signup Form</h1>
+            <p id="errorname"></p>
+            <input type="text" id="full-name" placeholder="Enter full name">
+
+            <p id="erroremail"></p>
+            <input type="text" id="email" placeholder="Enter email">
+
+            <p id="errorphone"></p>
+            <input type="text" id="phone" placeholder="Enter contact number">
+
+            <p id="errorpass"></p>
+            <input type="password" id="password" placeholder="Enter password">
+
+            <p id="errorcnpass"></p>
+            <input type="password" id="confirm-password" placeholder="Confirm password">
+
+            <input type="submit" value="Signup">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("signup-form").addEventListener("submit", function(event) {
+            let name = document.getElementById("full-name").value;
+            let email = document.getElementById("email").value;
+            let phone = document.getElementById("phone").value;
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirm-password").value;
+
+            let errorName = document.getElementById("errorname");
+            let errorEmail = document.getElementById("erroremail");
+            let errorPhone = document.getElementById("errorphone");
+            let errorPass = document.getElementById("errorpass");
+            let errorCnPass = document.getElementById("errorcnpass");
+
+            errorName.innerHTML = "";
+            errorEmail.innerHTML = "";
+            errorPhone.innerHTML = "";
+            errorPass.innerHTML = "";
+            errorCnPass.innerHTML = "";
+
+            let valid = true;
+
+            // Name Validation
+            if (name === "") {
+                errorName.innerHTML = "Please enter your full name";
+                valid = false;
+            }
+
+            // Email Validation
+            if (email === "") {
+                errorEmail.innerHTML = "Please enter your email";
+                valid = false;
+            } else if (!email.includes("@") || !email.includes(".com")) {
+                errorEmail.innerHTML = "Invalid email format";
+                valid = false;
+            }
+
+            // Contact Number Validation
+            if (phone === "") {
+                errorPhone.innerHTML = "Please enter your contact number";
+                valid = false;
+            } else if (!/^\d{10}$/.test(phone)) {
+                errorPhone.innerHTML = "Enter a valid 10-digit number";
+                valid = false;
+            }
+
+            // Password Validation
+            if (password === "") {
+                errorPass.innerHTML = "Please enter a password";
+                valid = false;
+            } else if (password.length < 8) {
+                errorPass.innerHTML = "Password must be at least 8 characters long";
+                valid = false;
+            } else if (!/[A-Z]/.test(password) || !/[a-z]/.test(password) || !/[0-9]/.test(password) || !/[!@#$%^&*]/.test(password)) {
+                errorPass.innerHTML = "Password must contain uppercase, lowercase, number, and special character";
+                valid = false;
+            }
+
+            // Confirm Password Validation
+            if (confirmPassword === "") {
+                errorCnPass.innerHTML = "Please confirm your password";
+                valid = false;
+            } else if (password !== confirmPassword) {
+                errorCnPass.innerHTML = "Passwords do not match";
+                valid = false;
+            }
+
+            if (!valid) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

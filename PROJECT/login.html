@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Austrian_Airlines_flight_attendant_and_passenger.jpg/1200px-Austrian_Airlines_flight_attendant_and_passenger.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #login-form {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 350px;
+            height: auto;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        h1 {
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-style: italic;
+            font-size: 14px;
+            color: red;
+            margin: 5px 0;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: 0.3s ease-in-out;
+        }
+
+        input:focus {
+            border-color: blue;
+            box-shadow: 0px 0px 5px rgba(0, 0, 255, 0.5);
+        }
+
+        input.shake {
+            animation: shake 0.3s ease-in-out;
+        }
+
+        .password-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: blue;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            border: none;
+            padding: 10px;
+            margin-top: 15px;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: darkblue;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+        }
+    </style>
+</head>
+<body>
+    <div id="login-form">
+        <form id="loginForm">
+            <h1>Login</h1>
+            <p id="erroremail"></p>
+            <input type="text" id="email" placeholder="Enter email"> <br>
+            <p id="errorpass"></p>
+            <div class="password-container">
+                <input type="password" id="password" placeholder="Enter password">
+                <!-- <span class="toggle-password" onclick="togglePassword()">👁️</span> -->
+            </div>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
