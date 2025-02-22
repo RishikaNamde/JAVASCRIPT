@@ -21,7 +21,7 @@
 
         /* Signup Form */
         #form {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(178, 234, 242, 0.85);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
@@ -29,10 +29,14 @@
             width: 400px;
             animation: fadeIn 0.8s ease-out;
         }
+        #signup-form h1{
+            font-size: 40px;
+
+        }
 
         /* Input Fields */
         input {
-            width: 100%;
+            width: 90%;
             padding: 10px;
             margin-bottom: 5px;
             border: 1px solid #ccc;
@@ -67,16 +71,16 @@
 
         /* Error Messages */
         p {
-            font-style: italic;
+            font-style: normal;
             font-size: 17px;
             color: red;
-            margin: 5px 0;
+            margin: 20px 0;
             height: auto;
-            text-align: left;
+            text-align: center;
         }
 
         /* Animations */
-        @keyframes fadeIn {
+         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
@@ -89,30 +93,42 @@
         }
 
         @keyframes movePlane {
-            0% { transform: translateX(-100px) translateY(0) rotate(5deg); }
-            50% { transform: translateX(100vw) translateY(50px) rotate(-5deg); }
-            100% { transform: translateX(-100px) translateY(0) rotate(5deg); }
+            0% { transform: translateX(100vw); } /* Start off-screen right */
+            100% { transform: translateX(-100%); } /* Move off-screen left */
         }
+        
+        .plane {
+            position: absolute;
+            top: 20%;
+            right: 0;
+            width: 100px;
+            height: 200px;
+            animation: movePlane 8s linear infinite; /* Smooth infinite loop */
+        }
+        
+        
+        
+       
 
         /* Plane Animation */
-        /*.plane {
+        .plane {
             position: absolute;
             top: 20%;
             left: -100px;
             width: 400px;
-            height: 100px;
+            height: 200px;
             animation: movePlane 10s infinite;
-        }*/
+        }
     </style>
 </head>
 <body>
 
     <!-- Airplane Animation -->
-    <!-- <img src="PROJECT/aeroplane.png" class="plane"> -->
+    <img src="./are.png" class="plane"> 
 
     <div id="form">
         <form id="signup-form">
-            <h1>Signup Form</h1>
+            <h1>Signup</h1>
             <p id="errorname"></p>
             <input type="text" id="full-name" placeholder="Enter full name">
 
@@ -129,6 +145,8 @@
             <input type="password" id="confirm-password" placeholder="Confirm password">
 
             <input type="submit" value="Signup">
+            <p class="signup-link"> Have an account? <a href="./login.html">Login</a></p>
+
         </form>
     </div>
 

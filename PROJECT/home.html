@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking </title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">    
+    <!-- AOS for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+           
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(90deg, #07027c, #9ce0e0);
+            padding: 5px 15px;
+            min-height: 80px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: slideDown 1s ease-out forwards;
+        }
+        .container h1 {
+             
+                font-family: 'Pacifico', cursive;
+                font-size: 50px;
+                color: white;
+                text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
+            
+        }
+    
+    
+
+        .container {
+            width: 90%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .logo-img {
+            width: 7em;
+            height: 4em;
+            margin-right: 8px;
+            
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 500;
+            font-family: 'Roboto', sans-serif;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: #ffdd57;
+            transform: scale(1.1);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: linear-gradient(90deg, #33057e, #00b4db);
+                position: absolute;
+                top: 40px;
+                left: 0;
+                width: 100%;
+                padding: 8px 0;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+               
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Swiper Styles */
+        .swiper-container {
+            width: 100%;
+            height: 80vh; 
+            margin-top: 1px;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: black;
+            position: relative;
+        }
+
+        .slide-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Swiper Buttons */
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: white;
+        }
+
+        .swiper-pagination-bullet {
+            background: white;
+        }
+        /* Overlay Text */
+        .slide-text {
+            position: absolute;
+            
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: rgb(251, 251, 251);
+           
+           
+        }
+
+        .slide-text h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            font-family: 'Merriweather', serif;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+        }
+
+        .slide-text p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            font-family: Arial, sans-serif;
+            
+        }
+        
+        
+        
+        .slide-text {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: rgb(254, 254, 254);
+            animation: circularMove 2s ease-out forwards;
+        }
+        
+        .typed-text {
+            font-size: 3rem;
+            font-weight: bold;
+            font-family: 'Merriweather', serif;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+        .book-now-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #ff6b00, #ffbb00);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+            margin-top: 15px;
+        }
+        
+        .book-now-btn:hover {
+            background: linear-gradient(90deg, #ffbb00, #ff6b00);
+            transform: scale(1.05);
+        }
+        /* Info Section */
+.info-section {
+    width: 100%;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.info-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1200px;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.info-image img {
+    width: 500px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.info-text {
+    max-width: 500px;
+}
+
+.info-text h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #07027c;
+}
+
+.info-text p {
+    font-size: 1.2rem;
+    margin: 15px 0;
+    color: #333;
+}
+
+.learn-more-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #ff6b00, #ffbb00);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.learn-more-btn:hover {
+    background: linear-gradient(90deg, #ffbb00, #ff6b00);
+    transform: scale(1.05);
+}
+/*cards*/
+.swiper {
+    width: 400px;
+    height: 400px;
+    margin-right: 200px;
+  }
+
+  .swiper-slide {
+    
+        position: relative;
+        background-size: center;
+        background-position: center;
+        
+        width: 100%; 
+        height: auto; /* Change height as needed */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        color: #ffffff;
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+        
+    }
+    .services-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 50px;
+    }
+    
+    .services-text h2 {
+        width: 40%;
+        font-size: 50px;
+        color:#07027c;
+    }
+    .services-text p{
+        font-size: 20px;
+        color:#333 ;
+    }
+    
+    
+    
+  
+
+  
+
+/* Responsive */
+@media (max-width: 900px) {
+    .info-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .info-image img {
+        width: 100%;
+    }
+}
+.popular h1{
+    font-size: 50px;
+        color:#07027c;
+        text-align: center;
+}
+
+
+        
+        
+
+        
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container" >
+            <a href="#" class="logo" data-aos="fade-right" data-aos-duration="1000">
+               
+                <h1>Rapid Wings</h1>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li data-aos="fade-down" data-aos-duration="1000"><a href="./home.html">Home</a></li>
+                <li data-aos="fade-down" data-aos-duration="1000"><a href="/search">Search Flights</a></li>
+                <li data-aos="fade-down" data-aos-duration="1200"><a href="/manage">Manage Booking</a></li>
+                <li data-aos="fade-down" data-aos-duration="1400"><a href="/checkin">Check-in</a></li>
+                <li data-aos="fade-down" data-aos-duration="1600"><a href="/status">Flight Status</a></li>
+                <li data-aos="fade-down" data-aos-duration="1800"><a href="/deals">Deals & Offers</a></li>
+                <li data-aos="fade-down" data-aos-duration="2000"><a href="./SIGNUP.HTML" class="signin-btn">Sign In</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Swiper Slider -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!-- Slide 1 -->
+            <div class="swiper-slide">
+                <video autoplay loop muted playsinline class="slide-video">
+                    <source src="./3166405-uhd_3840_2160_24fps.mp4" type="video/mp4">
+                   
+                </video>
+                <div class="slide-text" data-aos="fade-up">
+                    <h1>"Your dream destination is one booking away."</h1>
+                    <p>Explore the world with comfort and style</p>
+                    <a href="/search" class="book-now-btn">Book Now</a>
+
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="swiper-slide">
+                <video autoplay loop muted playsinline class="slide-video">
+                    <source src="./video1.mp4" type="video/mp4">
+                 
+                </video>
+                <div class="slide-text" data-aos="fade-up">
+                    <h1>"The world is waiting—reserve your seat today."</h1>
+                    <p>Your next adventure awaits</p>
+                    <a href="/search" class="book-now-btn">Book Now</a>
+
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="swiper-slide">
+                <video autoplay loop muted playsinline class="slide-video">
+                    <source src="./12427507_3840_2160_24fps.mp4" type="video/mp4">
+                   
+                </video>
+                <div class="slide-text" data-aos="fade-up">
+                    <h1>"Adventure is just a flight away."</h1>
+                    <p>Discover breathtaking destinations</p>
+                    <a href="/search" class="book-now-btn">Book Now</a>
+
+                </div>
+               
+                
+            </div>
+        </div>
+
+        <!-- Swiper Pagination -->
+        <div class="swiper-pagination"></div>
+        
+        <!-- Swiper Navigation Buttons -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+    <!-- Info Section -->
+<section class="info-section">
+    <div class="info-container">
+        <div class="info-image" data-aos="fade-right">
+            <img src="./alexey-starki-91ykdj2WQeg-unsplash.jpg" alt="Travel" />
+        </div>
+        <div class="info-text" data-aos="fade-left">
+            <h2>Why Choose Rapid Wings?</h2>
+            <p>
+                Experience seamless travel with top-notch service, exclusive deals, 
+                and a hassle-free booking experience. Whether it's a business trip 
+                or a dream vacation, we've got you covered!
+            </p>
+            <a href="/about" class="learn-more-btn">Learn More</a>
+        </div>
+    </div>
+</section>
+
+    <!-- Swiper Cards Section -->
+   
+        <section class="services-section">
+            <div class="services-text" data-aos="fade-right">
+                <h2>Our Services</h2><br>
+                <p>We offer a variety of services to make your travel experience seamless and enjoyable. 
+                   From easy flight booking to top-tier customer support, our goal is to provide you with the best journey possible.</p><br>
+                   <ul>
+                    <li><strong>Easy Flight Booking:</strong> Hassle-free online booking with multiple payment options.</li><br>
+                    <li><strong>Exclusive Travel Deals:</strong> Special discounts and offers on flights worldwide.</li><br>
+                    <li><strong>Luxury & Comfort:</strong> Enjoy premium seating, gourmet meals, and in-flight entertainment.</li><br>
+                    <li><strong>24/7 Customer Support:</strong> Assistance available round-the-clock for all your travel needs.</li><br>
+                    <li><strong>Secure & Reliable:</strong> Your safety is our priority with top-tier security measures.</li><br>
+                    <li><strong>Seamless Check-in:</strong> Online check-in for a stress-free airport experience.</li>
+                </ul>
+            </div>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background-image: url('./raja-sen-MzmI2I1GCnU-unsplash.jpg');"><span>Explore New Destinations</span></div>
+                <div class="swiper-slide" style="background-image: url('https://onlinevacations.in/img/about.jpg');"><span>Exclusive Travel Deals</span></div>
+                <div class="swiper-slide" style="background-image: url('https://images.stockcake.com/public/f/d/e/fde08189-2282-45b9-b19d-cfa4c2a78fe4_large/luxury-flight-experience-stockcake.jpg');"><span>Comfort & Luxury</span></div>
+                <div class="swiper-slide" style="background-image: url('https://img.freepik.com/free-photo/booking-hotel-reservation-travel-destination-concept_53876-121094.jpg');"><span>Seamless Booking</span></div>
+                <div class="swiper-slide" style="background-image: url('https://www.salesforce.com/blog/wp-content/uploads/sites/2/2021/02/customer-service-stats-header-og-v2.jpg?w=889');"><span>24/7 Customer Support</span></div>
+                <div class="swiper-slide" style="background-image: url('https://protechsecurity.com/wp-content/uploads/2017/08/personal-safety-and-security-1040x555.jpg');"><span>Safe & Secure Travels</span></div>
+            </div>
+        </div>
+     </section>
+    <!-- Popular Domestic Airlines -->
+     <!-- Popular Domestic Airlines -->
+<section class="popular">
+    <h1>Popular Domestic Airlines</h1>
+</section>
+
+<!-- Thumb Gallery Swiper Loop -->
+<div class="swiper mySwiper loop-gallery">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="https://swiperjs.com/demos/images/nature-1.jpg" /></div>
+        <div class="swiper-slide"><img src="https://swiperjs.com/demos/images/nature-2.jpg" /></div>
+        <div class="swiper-slide"><img src="https://swiperjs.com/demos/images/nature-3.jpg" /></div>
+        <div class="swiper-slide"><img src="https://swiperjs.com/demos/images/nature-4.jpg" /></div>
+    </div>
+</div>
+
+   
+
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="./home.js"></script>
+    
+
+</body> 
