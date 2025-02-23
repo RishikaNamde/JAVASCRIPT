@@ -102,3 +102,13 @@ window.onload = autoScroll;
 function scrollOffers(amount) {
     document.getElementById('offers').scrollBy({ left: amount, behavior: 'smooth' });
 }
+//section-5
+let customIndex = 0;
+        function moveCustomSlider(step) {
+            const customSlider = document.getElementById("custom-slider");
+            const customSlides = document.querySelectorAll(".custom-slide");
+            const totalCustomSlides = customSlides.length;
+
+            customIndex = (customIndex + step + totalCustomSlides) % totalCustomSlides;
+            customSlider.style.top = -customIndex * 400 + "px";
+        }

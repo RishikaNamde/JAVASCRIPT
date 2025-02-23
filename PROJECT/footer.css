@@ -1,0 +1,46 @@
+footer {
+    background-color:black;
+    color: grey;
+    padding: 60px ;
+    text-align: center;
+    margin-top: 100px;
+    display: flex;
+  }
+  
+  .footer-content p {
+    
+    font-size: 14px;
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .footer-links a {
+    color: darkorange;
+    text-decoration: none;
+    font-style: italic;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  .para3 {
+    margin-top: 50px;
+  }
+  .icons a{
+    color: grey;
+   padding: 20px;
+  
+ 
+    
+    
+    
+
+  }
+

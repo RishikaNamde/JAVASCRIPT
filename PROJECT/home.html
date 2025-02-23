@@ -9,6 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./flight.css">
+    <link rel="stylesheet" href="./footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">    
     <!-- AOS for animations -->
@@ -465,7 +469,7 @@
     }
 }
 .popular h1{
-    font-size: 50px;
+    font-size: 45px;
         color:#07027c;
         text-align: center;
 }
@@ -546,6 +550,8 @@
 .next {
     right: 10px;  /* Places it 10px from the right */
 }
+/*section-5*/
+
 
 
 @media (max-width: 768px) {
@@ -740,8 +746,81 @@
         </div>
     
     
-    </section> 
-
+    </section >
+    
+    <!-- section-4 -->
+    <section class="popular">
+        <h1>Popular Domestic Airlines</h1>
+    </section>
+    <section id="hello">
+    <div class="custom-container">
+        <div class="custom-slider" id="custom-slider">
+            <div class="custom-slide">
+                <img src="https://images.moneycontrol.com/static-mcnews/2024/05/20240517103323_airindianew11.jpg" alt="Image 1">
+                <div class="custom-text-container"><h2>AIR INDIA</h2>
+                    <p>Air India is the flagship airline of India, owned by the Tata Group. Established in 1932, it is known for its extensive domestic and international network, offering premium services and a rich legacy in Indian aviation. </p>
+                </div>
+            </div>
+            <div class="custom-slide">
+                <img src="https://akm-img-a-in.tosshub.com/businesstoday/images/assets/202307/16-17-1-sixteen_nine.jpg?size=1200:675" alt="Image 2">
+                <div class="custom-text-container"><h2>INDIGO</h2>
+                <p>IndiGo is India’s largest airline by market share, known for its low-cost model, punctuality, and extensive domestic and international network. Founded in 2006, IndiGo operates a modern fleet of Airbus A320, A321, and ATR aircraft, focusing on affordable and hassle-free travel.</p></div>
+            </div>
+            <div class="custom-slide">
+                <img src="https://m.economictimes.com/thumb/msid-112915474,width-1200,height-1200,resizemode-4,imgsize-165936/the-lounge-access-purchased-while-booking-on-vistara-will-not-be-valid-if-your-flight-is-now-being-operated-by-air-india-for-travel-12-november-2024-onwards-.jpg" alt="Image 3">
+                <div class="custom-text-container"><h2>VISTARA</h2>
+                <p>Vistara is a premium full-service airline in India, a joint venture between Tata Sons and Singapore Airlines. Launched in 2015, it is known for its luxury experience, superior hospitality, and comfortable seating across Economy, Premium Economy, and Business Class.</p></div>
+            </div>
+            <div class="custom-slide">
+                <img src="https://www.reuters.com/resizer/v2/ZK7KOG55JVLWXP4TLRQNOC66OQ.jpg?auth=675ac1509130b0c73f8b793a56985d3500688da772747ec197a899985f1134e3&width=2331&quality=80" alt="Image 4">
+                <div class="custom-text-container"><h2>SPICE-JET</h2>
+                    <p>SpiceJet is one of India's leading low-cost carriers, known for its budget-friendly fares and extensive domestic network. Established in 2005, the airline operates a fleet of Boeing 737 and Bombardier Q400 aircraft.</p></div>
+                </div>
+            </div>
+            <div class="custom-slide">
+                <img src="https://images.moneycontrol.com/static-mcnews/2022/05/Go-First-4.jpg?impolicy=website&width=1600&height=900" alt="Image 4">
+                <div class="custom-text-container"><h2>GO-FIRST</h2>
+                    <p>Go First, previously known as GoAir, was a budget airline in India that focused on providing affordable travel options. It operated a fleet of Airbus A320 aircraft and connected various domestic and international destinations.</p></div>
+                </div>
+            <div class="custom-slide">
+                <img src="https://imgd.aeplcdn.com/1920x1080//n/cw/ec/156489/infographics0.jpeg?isig=1&wm=0&q=75" alt="Image 4">
+                <div class="custom-text-container"><h2>AKASA AIR</h2>
+                    <p>Akasa Air is India’s newest airline, launched in 2022, with a focus on affordability, sustainability, and customer-friendly service. Backed by billionaire Rakesh Jhunjhunwala, the airline operates a fleet of Boeing 737 MAX aircraft. </p></div>
+               </div>
+    </div><div class="custom-buttons">
+        <button class="custom-btn" onclick="moveCustomSlider(-1)">Prev</button>
+        <button class="custom-btn" onclick="moveCustomSlider(1)">Next</button>
+    </div>
+        
+    </div>
+    
+    </section>
+    <section id="footer">
+        <footer>
+            <div class="footer-content">
+              <div class="icons">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#"><i class="fa-regular fa-envelope"></i></a>
+                
+              </div>
+              <p>&copy;  The world travel guy 2024 </p>
+              <ul class="footer-links">
+                <li><a href="#">
+                  Affiliate Disclosures  </a>
+                  <a href="#">• Privacy Policy</a>
+                  <a href="#">• Terms Of Use</a>
+                 </li>
+              </ul>
+              <p class="para3">Some of the pages on my travel blog contain affiliate links. Whenever you buy something through one of these links, I get a small commission at no extra cost to you. As an affiliate, I only recommend products and services that I feel are high quality and helpful to my readers. Thanks for your support.</p>
+            </div>
+          </footer>
+          
+        
+        
+    
+    </section>
 <!-- Include Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
