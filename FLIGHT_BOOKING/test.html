@@ -1,177 +1,123 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rapid Wing - Footer</title>
-    <style>
-        /* Global Styling */
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-        }
-
-        /* Footer Styling */
-        .footer {
-            background-color: #2c3e50;
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            padding: 20px;
-        }
-
-        .footer-about, .footer-links, .footer-social {
-            flex: 1;
-            min-width: 250px;
-            padding: 15px;
-            text-align: left;
-        }
-
-        /* Logo and Branding */
-        .footer-about h3 {
-            color: #f39c12;
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        .footer-about p {
-            font-size: 1.1rem;
-            margin-top: 0;
-        }
-
-        /* Footer Links */
-        .footer-links h4 {
-            color: #f39c12;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .footer-links ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .footer-links ul li {
-            margin: 10px 0;
-        }
-
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-size: 1rem;
-        }
-
-        .footer-links a:hover {
-            color: #f39c12;
-        }
-
-        /* Social Media Icons */
-        .footer-social h4 {
-            color: #f39c12;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            justify-content: left;
-            margin-top: 10px;
-        }
-
-        .social-icons a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            color: #f39c12;
-        }
-
-        /* Footer Bottom */
-        .footer-bottom {
-            border-top: 1px solid #f39c12;
-            margin-top: 20px;
-            padding-top: 10px;
-        }
-
-        .footer-bottom p {
-            font-size: 1rem;
-            color: white;
-        }
-
-        /* Logo Styling */
-        .footer-logo img {
-            max-width: 150px;
-            margin-bottom: 10px;
-        }
-    </style>
-    <!-- Font Awesome for social media icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- Ensure this is in the <head> -->
-</head>
-<body>
-
-    <!-- Footer Section -->
-    <footer class="footer">
-        <div class="footer-container">
-            <!-- About and Logo -->
-            <div class="footer-about">
-                <div class="footer-logo">
-                    <img src="https://via.placeholder.com/150x50?text=Rapid+Wing" alt="Rapid Wing Logo">
-                    <!-- Replace above URL with the actual logo image URL -->
-                </div>
-                <h3>Rapid Wing</h3>
-                <p>Fly faster, travel smarter. Book your next adventure with ease.</p>
+<!-- Footer HTML -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-column">
+            <h4>About Us</h4>
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Press</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Customer Support</h4>
+            <ul>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Refund & Cancellation</a></li>
+                <li><a href="#">Baggage Information</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">Book a Flight</a></li>
+                <li><a href="#">Flight Status</a></li>
+                <li><a href="#">Manage Booking</a></li>
+                <li><a href="#">Travel Deals</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="#"><img src="facebook-logo.png" alt="Facebook"></a>
+                <a href="#"><img src="twitter-logo.png" alt="Twitter"></a>
+                <a href="#"><img src="instagram-logo.png" alt="Instagram"></a>
+                <a href="#"><img src="linkedin-logo.png" alt="LinkedIn"></a>
             </div>
-
-            <!-- Quick Links -->
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Flights</a></li>
-                    <li><a href="#">Destinations</a></li>
-                    <li><a href="#">Booking</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-
-            <!-- Social Media Links -->
-            <div class="footer-social">
-                <h4>Follow Us</h4>
-                <div class="social-icons">
-                    <a href="#" class="icon facebook" title="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="icon twitter" title="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="icon instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="icon linkedin" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="icon youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
-                </div>
+            <h4>Download App</h4>
+            <div class="app-links">
+                <a href="#">App Store</a>
+                <a href="#">Google Play</a>
             </div>
         </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Rapid Wings. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        <button id="backToTop">&#8679; Back to Top</button>
+    </div>
+</footer>
 
-        <!-- Footer Bottom -->
-        <div class="footer-bottom">
-            <p>&copy; <span id="year"></span> Rapid Wing. All rights reserved.</p>
-        </div>
-    </footer>
+<!-- Footer CSS -->
+<style>
+    footer {
+        background-color: #222;
+        color: #fff;
+        padding: 40px 20px;
+        text-align: center;
+    }
+    .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        max-width: 1200px;
+        margin: auto;
+    }
+    .footer-column {
+        flex: 1;
+        min-width: 200px;
+        margin: 20px;
+    }
+    .footer-column h4 {
+        margin-bottom: 15px;
+        font-size: 18px;
+    }
+    .footer-column ul {
+        list-style: none;
+        padding: 0;
+    }
+    .footer-column ul li {
+        margin: 8px 0;
+    }
+    .footer-column ul li a {
+        color: #bbb;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+    .footer-column ul li a:hover {
+        color: #fff;
+    }
+    .social-icons a img {
+        width: 24px;
+        margin: 0 10px;
+    }
+    .app-links a {
+        display: block;
+        margin-top: 10px;
+        color: #bbb;
+    }
+    .footer-bottom {
+        margin-top: 20px;
+        padding-top: 10px;
+        border-top: 1px solid #444;
+    }
+    #backToTop {
+        background-color: #ff6600;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    #backToTop:hover {
+        background-color: #e65c00;
+    }
+</style>
 
-    <script>
-        // Dynamically set the current year in the footer
-        document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
-
-</body>
-</html>
+<!-- Footer JavaScript -->
+<script>
+    document.getElementById('backToTop').addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>

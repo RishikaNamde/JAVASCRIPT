@@ -112,3 +112,6 @@ let customIndex = 0;
             customIndex = (customIndex + step + totalCustomSlides) % totalCustomSlides;
             customSlider.style.top = -customIndex * 400 + "px";
         }
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });

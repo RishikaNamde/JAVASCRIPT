@@ -35,6 +35,7 @@
            
             background-color: #f4f4f4;
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
         /* Navbar */
@@ -310,6 +311,7 @@
         background-size: center;
         background-position: center;
         
+        
         width: 100%; 
         height: auto; /* Change height as needed */
         display: flex;
@@ -327,6 +329,7 @@
         align-items: center;
         justify-content: space-between;
         padding: 50px;
+        margin-left: 130px;
     }
     
     .services-text h2 {
@@ -335,7 +338,7 @@
         color:#07027c;
     }
     .services-text p{
-        font-size: 20px;
+        font-size: 18px;
         color:#333 ;
     }
 
@@ -383,6 +386,7 @@
         font-family: Arial, sans-serif;
         background: #f5f5f5;
         padding: 10px;
+        
     }
 
     .offers-container {
@@ -561,6 +565,77 @@
     .custom-next {
         right: -30px;
     }
+}
+footer {
+    background-image: linear-gradient(90deg, #100d3b, #568ad3);
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+    margin-top: 1400px;
+}
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: auto;
+  
+}
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    margin: 20px;
+}
+.footer-column h4 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-column ul li {
+    margin: 8px 0;
+}
+.footer-column ul li a {
+    color: #bbb;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.footer-column ul li a:hover {
+    color: #fff;
+}
+.social-icons a i {
+    width: 40px;
+    font-size: 30px;
+    margin: 0 10px;
+    color: white;
+}
+.app-links a {
+    display: block;
+    margin-top: 10px;
+    color: #bbb;
+}
+.footer-bottom {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #444;
+}
+#backToTop {
+    background: linear-gradient(90deg, #ff6b00, #ffbb00);
+
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin: 20px auto 0;
+    
+    
+}
+#backToTop:hover {
+    background: linear-gradient(to bottom, #0e2b4b, #1E3A8A);
+
 }
 
 
@@ -817,6 +892,56 @@
             </div>
           </footer>
            -->
+          <!-- Footer HTML -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-column">
+            <h4>About Us</h4>
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Press</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Customer Support</h4>
+            <ul>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Refund & Cancellation</a></li>
+                <li><a href="#">Baggage Information</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">Book a Flight</a></li>
+                <li><a href="#">Flight Status</a></li>
+                <li><a href="#">Manage Booking</a></li>
+                <li><a href="#">Travel Deals</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-square-facebook fa-beat-fade"></i></a>
+                <a href="#"><i class="fa-brands fa-square-twitter fa-beat-fade"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram fa-beat-fade"></i></a>
+            </div>
+            <h4>Download App</h4>
+            <div class="app-links">
+                <a href="#">Google play</a>
+                <a href="#"><i class="fa-brands fa-google-play fa-fade"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Rapid Wings. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        <button id="backToTop">&#8679; Back to Top</button>
+    </div>
+</footer>
+          
         
         
     
