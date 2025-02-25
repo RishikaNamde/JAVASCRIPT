@@ -3,41 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup Form</title>
+    <title>Login Form</title>
     <style>
-        /* Background Styling */
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-image: url("https://www.flightnetwork.com/system/image/open_graph_default_image.jpg");
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            overflow: hidden;
         }
+        
 
-        /* Signup Form */
-        #form {
-            background: rgba(178, 234, 242, 0.85);
-            padding: 20px;
+        #login-form {
+            background: rgba(7, 172, 222, 0.2);
+            
+            padding: 25px;
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
             text-align: center;
             width: 400px;
-            animation: fadeIn 0.8s ease-out;
-        }
-        #signup-form h1{
-            font-size: 40px;
-
+            height: 400px;
+            animation: fadeIn 0.10s ease-out;
         }
 
-        /* Input Fields */
+        h1 {
+            margin-bottom: 15px;
+            font-size: 50px;
+        }
+
+        p {
+            font-style: normal;
+            font-size: 20px;
+            color: red;
+            margin: 20px ;
+            text-align: center;
+        }
+
         input {
-            width: 90%;
-            padding: 10px;
+            width: 100%;
+            padding: 8px;
             margin-bottom: 5px;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -53,7 +60,19 @@
             animation: shake 0.3s ease-in-out;
         }
 
-        /* Submit Button */
+        .password-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
         input[type="submit"] {
             background-color: blue;
             color: white;
@@ -61,26 +80,16 @@
             font-size: 16px;
             border: none;
             padding: 10px;
-            margin-top: 10px;
-            transition: 0.3s ease-in-out;
+            margin-top: 15px;
+            width: 100%;
+            transition: 0.3s;
         }
 
         input[type="submit"]:hover {
             background-color: darkblue;
         }
 
-        /* Error Messages */
-        p {
-            font-style: normal;
-            font-size: 17px;
-            color: red;
-            margin: 20px 0;
-            height: auto;
-            text-align: center;
-        }
-
-        /* Animations */
-         @keyframes fadeIn {
+        @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
@@ -90,8 +99,8 @@
             25% { transform: translateX(-5px); }
             50% { transform: translateX(5px); }
             75% { transform: translateX(-5px); }
+            
         }
-
         @keyframes movePlane {
             0% { transform: translateX(100vw); } /* Start off-screen right */
             100% { transform: translateX(-100%); } /* Move off-screen left */
@@ -116,40 +125,37 @@
             top: 20%;
             left: -100px;
             width: 400px;
-            height: 200px;
-            animation: movePlane 10s infinite;
+            height: 250px;
+            animation: movePlane 15s infinite;
         }
+        
+        
+        
+        
     </style>
 </head>
-<body>
-
+<body id="black">
     <!-- Airplane Animation -->
-    <img src="./are.png" class="plane"> 
-
-    <div id="form">
-        <form id="signup-form">
-            <h1>Signup</h1>
-            <p id="errorname"></p>
-            <input type="text" id="full-name" placeholder="Enter full name">
-
+    <img src="./are.png" class="plane">
+    <div id="login-form">
+        <form id="loginForm">
+            <h1>Login</h1>
             <p id="erroremail"></p>
-            <input type="text" id="email" placeholder="Enter email">
-
-            <p id="errorphone"></p>
-            <input type="text" id="phone" placeholder="Enter contact number">
-
+            <input type="text" id="email" placeholder="Enter email"> <br>
             <p id="errorpass"></p>
-            <input type="password" id="password" placeholder="Enter password">
-
-            <p id="errorcnpass"></p>
-            <input type="password" id="confirm-password" placeholder="Confirm password">
-
-            <input type="submit" value="Signup">
-            <p class="signup-link"> Have an account? <a href="./login.html">Login</a></p>
+            <div class="password-container">
+                <input type="password" id="password" placeholder="Enter password">
+                <span class="toggle-password" onclick="togglePassword()">👁️</span>
+            </div>
+            <input type="submit" value="Login">
+            <p class="signup-link">Don't have an account? <a href="./SIGNUP.HTML">Sign up</a></p>
 
         </form>
     </div>
 
-   
+    <script src="login.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js"></script>
+    <script src="./vanta.js"></script>
 </body>
 </html>

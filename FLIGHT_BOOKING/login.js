@@ -1,4 +1,6 @@
-let login = () => {
+let login = (event) => {
+    event.preventDefault(); // Prevent form submission
+
     let inpemail = document.querySelector("#email");
     let inppass = document.querySelector("#password");
 
@@ -37,16 +39,19 @@ let login = () => {
 
     if (!isValid) return false;
 
-    alert("Login successful!");
+    // Show success message
+    alert("Login successful! Redirecting to Home page...");
+
+    // Redirect to home page after 1 second
+    setTimeout(() => {
+        window.location.href = "./home.html"; // Change to your actual home page file
+    }, 1000);
+
     return true;
 };
 
-// Prevent form submission if validation fails
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-    if (!login()) {
-        event.preventDefault();
-    }
-});
+// Attach event listener to the form
+document.getElementById("loginForm").addEventListener("submit", login);
 
 // Toggle password visibility
 function togglePassword() {

@@ -1,4 +1,6 @@
-let sub = () => {
+let sub = (event) => {
+    event.preventDefault(); // Prevent form submission
+
     let inpname = document.querySelector("#full-name");
     let inpemail = document.querySelector("#email");
     let inpphone = document.querySelector("#phone");
@@ -13,7 +15,6 @@ let sub = () => {
 
     let isValid = true;
 
-    // Function to shake input fields on error
     let shakeInput = (inputField) => {
         inputField.classList.add("shake");
         setTimeout(() => inputField.classList.remove("shake"), 300);
@@ -30,7 +31,7 @@ let sub = () => {
         inpname.style.border = "1px solid #ccc";
     }
 
-    // Email validation with regex
+    // Email validation
     let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(inpemail.value.trim())) {
         erroremail.innerHTML = "Please enter a valid email";
@@ -42,7 +43,7 @@ let sub = () => {
         inpemail.style.border = "1px solid #ccc";
     }
 
-    // Contact Number validation (must be 10 digits)
+    // Phone validation
     let phoneRegex = /^[0-9]{10}$/;
     if (!phoneRegex.test(inpphone.value.trim())) {
         errorphone.innerHTML = "Please enter a valid 10-digit phone number";
@@ -54,7 +55,7 @@ let sub = () => {
         inpphone.style.border = "1px solid #ccc";
     }
 
-    // Password validation (minimum 8 characters + strong password check)
+    // Password validation
     if (inppass.value.trim().length < 8) {
         errorpass.innerHTML = "Password must be at least 8 characters long";
         inppass.style.border = "2px solid red";
@@ -91,13 +92,16 @@ let sub = () => {
 
     if (!isValid) return false;
 
-    alert("Sign-up successful!");
+    // Show success message
+    alert("Sign-up successful! Redirecting to login page...");
+
+    // Redirect to login page after 1 second
+    setTimeout(() => {
+        window.location.href = "./login.html"; // Change this if your login file is in another folder
+    }, 1000);
+
     return true;
 };
 
-// Prevent form submission if validation fails
-document.getElementById("signup-form").addEventListener("submit", function(event) {
-    if (!sub()) {
-        event.preventDefault();
-    }
-});
+// Attach event listener to the form
+document.getElementById("signup-form").addEventListener("submit", sub);
