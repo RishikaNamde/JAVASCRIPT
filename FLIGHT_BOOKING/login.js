@@ -1,6 +1,5 @@
 let login = (event) => {
-    event.preventDefault(); // Prevent form submission
-
+    event.preventDefault(); 
     let inpemail = document.querySelector("#email");
     let inppass = document.querySelector("#password");
 
@@ -44,7 +43,7 @@ let login = (event) => {
 
     // Redirect to home page after 1 second
     setTimeout(() => {
-        window.location.href = "./home.html"; // Change to your actual home page file
+        window.location.href = "./home.html";
     }, 1000);
 
     return true;
