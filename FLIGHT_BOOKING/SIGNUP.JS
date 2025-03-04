@@ -92,13 +92,20 @@ let sub = (event) => {
 
     if (!isValid) return false;
 
-    // Show success message
-    alert("Sign-up successful! Redirecting to login page...");
+    // Show success message with SweetAlert
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Sign-up successful!",
+        text: "Redirecting to login page...",
+        showConfirmButton: false,
+        timer: 2000
+    });
 
-    // Redirect to login page after 1 second
+    // Redirect to login page after 2 seconds
     setTimeout(() => {
         window.location.href = "./login.html"; // Change this if your login file is in another folder
-    }, 1000);
+    }, 2000);
 
     return true;
 };

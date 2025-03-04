@@ -38,13 +38,19 @@ let login = (event) => {
 
     if (!isValid) return false;
 
-    // Show success message
-    alert("Login successful! Redirecting to Home page...");
+    // Show success message using SweetAlert
+    Swal.fire({
+        icon: "success",
+        title: "Login Successful!",
+        text: "Redirecting to Home page...",
+        timer: 1500,
+        showConfirmButton: false
+    });
 
-    // Redirect to home page after 1 second
+    // Redirect to home page after 1.5 seconds
     setTimeout(() => {
         window.location.href = "./home.html";
-    }, 1000);
+    }, 1600);
 
     return true;
 };

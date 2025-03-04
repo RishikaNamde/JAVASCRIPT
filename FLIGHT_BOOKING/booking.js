@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector(".booking-form form");
+    const form = document.getElementById("bookingForm");
 
     form.addEventListener("submit", function (event) {
         event.preventDefault(); // Prevent default form submission
@@ -14,24 +14,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Simple validation
         if (!name || !email || !departure || !destination || !date || !flightClass) {
-            alert("Please fill in all fields.");
+            Swal.fire("Error", "Please fill in all fields.", "error");
             return;
         }
 
-        if (!validateEmail(email)) {
-            alert("Please enter a valid email address.");
-            return;
-        }
+        // Save booking details to localStorage
+        let bookingData = {
+            name: name,
+            email: email,
+            departure: departure,
+            destination: destination,
+            date: date,
+            flightClass: flightClass
+        };
 
-        // Simulate successful booking confirmation
-        alert(`🎉 Booking Confirmed!\n\nName: ${name}\nEmail: ${email}\nFrom: ${departure}\nTo: ${destination}\nDate: ${date}\nClass: ${flightClass}`);
+        let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+        bookings.push(bookingData);
+        localStorage.setItem("bookings", JSON.stringify(bookings));
 
-        form.reset(); // Clear form after successful submission
+        // Redirect to confirmation page **IMMEDIATELY**
+        window.location.href = "confirmation.html";
     });
-
-    // Email validation function
-    function validateEmail(email) {
-        let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return regex.test(email);
-    }
 });
+

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flight Booking </title>
+    <title>Flight Booking</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,10 +18,8 @@
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     
     <style>
-        
         html, body {
             height: 100%;
-            
             margin: 0;
             padding: 0;
             overflow: hidden;
@@ -33,23 +31,16 @@
         .booking-form {
             max-width: 600px;
             width: 90%;
-            
             background: rgba(242, 246, 248, 0.24);
             border-radius: 10px;
             box-shadow: 0 0 10px rgb(255, 255, 255);
             color: #fff;
             background-size: cover;
             margin-left: 50px;
-            
-           /* Move slightly right */
         }
-        form{
+        form {
             font-size: 18px;
         }
-        
-        
-        
-        
         .booking-form h2 {
             text-align: center;
             margin-bottom: 20px;
@@ -65,7 +56,6 @@
             margin-bottom: 10px;
             border: 1px solid #3040e8;
             border-radius: 5px;
-            
         }
         .booking-form button {
             background: #0a045f;
@@ -79,13 +69,11 @@
     </style>
 </head>
 <body id="book">
-   
 
     <!-- Booking Form -->
-     
     <div class="booking-form">
         <h2>Book Your Flight</h2>
-        <form>
+        <form id="bookingForm">
             <label for="name">Full Name</label>
             <input type="text" id="name" name="name" required>
             
@@ -108,15 +96,16 @@
                 <option value="first">First Class</option>
             </select>
             
-            <button type="submit">Book Now</button>
+            <input type="submit" value="Book Now" id="bookNow" style="background: #0a045f; color: #fff; padding: 10px 20px; border: none; cursor: pointer;">
+       
         </form>
     </div>
 
-
     <!-- Scripts -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
-   <script src="./booking.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <script src="./booking.js"></script>
     <script src="./vantaBook.js"></script>
+
 </body>
 </html>
