@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking Confirmation</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link external CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <style>
     body {
@@ -17,7 +17,7 @@
     }
     
     .confirmation-container {
-        background: rgba(255, 255, 255, 0.9); /* Slight transparency */
+        background: rgba(255, 255, 255, 0.9);
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -30,6 +30,14 @@
     
     h2 {
         color: #333;
+    }
+
+    #search-box {
+        width: 50%;
+        padding: 8px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 5px;
     }
     
     table {
@@ -53,20 +61,6 @@
         background: #f9f9f9;
     }
     
-    .home-btn {
-        display: inline-block;
-        margin-top: 20px;
-        padding: 10px 20px;
-        background: #007bff;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-    }
-    
-    .home-btn:hover {
-        background: #0056b3;
-    }
-
     .update-btn {
         padding: 5px 10px;
         background: #28a745;
@@ -82,7 +76,7 @@
 
     .delete-btn {
         padding: 5px 10px;
-        background: #dc3545; /* Red color */
+        background: #dc3545;
         color: white;
         border: none;
         cursor: pointer;
@@ -91,6 +85,21 @@
 
     .delete-btn:hover {
         background: #c82333;
+    }
+
+    .add-booking-btn {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 10px 20px;
+        background: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .add-booking-btn:hover {
+        background: #0056b3;
     }
 
     #vanta-bg {
@@ -103,9 +112,12 @@
     }
 </style>
 <body>
-    <div id="vanta-bg"></div> <!-- Background for Vanta.js -->
+    <div id="vanta-bg"></div>
     <div class="confirmation-container">
         <h2>Flight Booking Confirmation</h2>
+
+        <input type="text" id="search-box" placeholder="Search by name" onkeyup="searchBookings()">
+
         <table id="hello">
             <thead>
                 <tr>
@@ -122,6 +134,8 @@
                 <!-- Bookings will be added dynamically here -->
             </tbody>
         </table>
+
+        <a href="./booknow.html" class="add-booking-btn">Add Another Booking</a>
     </div>
 
     <script src="./confirmation.js"></script> 
@@ -129,6 +143,5 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
-
 </body>
 </html>

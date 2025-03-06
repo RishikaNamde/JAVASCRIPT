@@ -4,8 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Fetch stored booking details
     let bookingDetails = JSON.parse(localStorage.getItem("bookings")) || [];
 
-    console.log("Loaded bookings:", bookingDetails); // Debugging
-
     function renderTable() {
         bookingList.innerHTML = ""; // Clear previous data
 
@@ -24,105 +22,79 @@ document.addEventListener("DOMContentLoaded", function () {
                 <td>${booking.date}</td>
                 <td>${booking.flightClass}</td>
                 <td>
-                    <button class="update-btn" onclick="editBooking(${index})">Update</button>
-                    <button class="delete-btn" onclick="deleteBooking(${index})">Delete</button>
+                    <button class="update-btn" onclick="updateBooking(${index})">Update</button>
+                    <button class="delete-btn" onclick="confirmDelete(${index})">Delete</button>
                 </td>
             `;
             bookingList.appendChild(row);
         });
     }
 
-    renderTable(); // Call function to display data
+    renderTable();
 
-    window.editBooking = (index) => {
-        console.log("Editing booking at index:", index);
+    // Function to update a booking
+    window.updateBooking = (index) => {
         let booking = bookingDetails[index];
-        let row = bookingList.children[index]; // Get the row to edit
-
-        row.innerHTML = `
-            <td><input type="text" id="edit-name-${index}" value="${booking.name}" required></td>
-            <td><input type="email" id="edit-email-${index}" value="${booking.email}" required></td>
-            <td><input type="text" id="edit-departure-${index}" value="${booking.departure}" required></td>
-            <td><input type="text" id="edit-destination-${index}" value="${booking.destination}" required></td>
-            <td><input type="date" id="edit-date-${index}" value="${booking.date}" required></td>
-            <td>
-                <select id="edit-class-${index}">
-                    <option value="Economy" ${booking.flightClass === "Economy" ? "selected" : ""}>Economy</option>
-                    <option value="Business" ${booking.flightClass === "Business" ? "selected" : ""}>Business</option>
-                    <option value="First Class" ${booking.flightClass === "First Class" ? "selected" : ""}>First Class</option>
-                </select>
-            </td>
-            <td>
-                <button class="save-btn" onclick="saveBooking(${index})">Save</button>
-                <button class="cancel-btn" onclick="renderTable()">Cancel</button>
-            </td>
-        `;
-    };
-
-    window.saveBooking = (index) => {
-        let updatedBooking = {
-            name: document.getElementById(`edit-name-${index}`).value.trim(),
-            email: document.getElementById(`edit-email-${index}`).value.trim(),
-            departure: document.getElementById(`edit-departure-${index}`).value.trim(),
-            destination: document.getElementById(`edit-destination-${index}`).value.trim(),
-            date: document.getElementById(`edit-date-${index}`).value,
-            flightClass: document.getElementById(`edit-class-${index}`).value
-        };
-
-        if (!updatedBooking.name || !updatedBooking.email || !updatedBooking.departure || !updatedBooking.destination || !updatedBooking.date) {
-            Swal.fire("Error", "All fields are required!", "error");
-            return;
-        }
-
-        bookingDetails[index] = updatedBooking;
-        localStorage.setItem("bookings", JSON.stringify(bookingDetails));
 
         Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Booking Updated Successfully",
-            showConfirmButton: false,
-            timer: 1500
+            title: "Update Booking",
+            html: `
+                <input id="swal-name" class="swal2-input" placeholder="Full Name" value="${booking.name}">
+                <input id="swal-email" class="swal2-input" placeholder="Email" value="${booking.email}">
+                <input id="swal-departure" class="swal2-input" placeholder="Departure" value="${booking.departure}">
+                <input id="swal-destination" class="swal2-input" placeholder="Destination" value="${booking.destination}">
+                <input id="swal-date" class="swal2-input" type="date" value="${booking.date}">
+                <input id="swal-class" class="swal2-input" placeholder="Class" value="${booking.flightClass}">
+            `,
+            showCancelButton: true,
+            confirmButtonText: "Update",
+            preConfirm: () => {
+                return {
+                    name: document.getElementById("swal-name").value,
+                    email: document.getElementById("swal-email").value,
+                    departure: document.getElementById("swal-departure").value,
+                    destination: document.getElementById("swal-destination").value,
+                    date: document.getElementById("swal-date").value,
+                    flightClass: document.getElementById("swal-class").value
+                };
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                bookingDetails[index] = result.value;
+                localStorage.setItem("bookings", JSON.stringify(bookingDetails));
+                Swal.fire("Updated!", "Your booking has been updated.", "success");
+                renderTable();
+            }
         });
-
-        renderTable();
     };
 
-    window.deleteBooking = (index) => {
+    window.confirmDelete = (index) => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                bookingDetails.splice(index, 1);
-                localStorage.setItem("bookings", JSON.stringify(bookingDetails));
-                
-                Swal.fire("Deleted!", "Your booking has been deleted.", "success");
-                renderTable();
+                deleteBooking(index);
             }
         });
     };
+
+    window.deleteBooking = (index) => {
+        bookingDetails.splice(index, 1);
+        localStorage.setItem("bookings", JSON.stringify(bookingDetails));
+        renderTable();
+        Swal.fire("Deleted!", "Your booking has been deleted.", "success");
+    };
+
+    window.searchBookings = () => {
+        let searchTerm = document.getElementById("search-box").value.toLowerCase();
+        document.querySelectorAll("#booking-list tr").forEach(row => {
+            row.style.display = row.innerText.toLowerCase().includes(searchTerm) ? "" : "none";
+        });
+    };
 });
-// function clearAllBookings() {
-//     Swal.fire({
-//         title: "Are you sure?",
-//         text: "This will delete all bookings permanently!",
-//         icon: "warning",
-//         showCancelButton: true,
-//         confirmButtonColor: "#d33",
-//         cancelButtonColor: "#3085d6",
-//         confirmButtonText: "Yes, delete all!"
-//     }).then((result) => {
-//         if (result.isConfirmed) {
-//             localStorage.removeItem("bookings"); // Remove all saved bookings
-//             Swal.fire("Deleted!", "All bookings have been removed.", "success").then(() => {
-//                 location.reload(); // Refresh the page to update UI
-//             });
-//         }
-//     });
-// }
