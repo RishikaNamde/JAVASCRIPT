@@ -25,9 +25,18 @@ let login = (event) => {
         inpemail.style.border = "1px solid #ccc";
     }
 
+    // Retrieve stored signup credentials
+    let storedEmail = localStorage.getItem("signupEmail");
+    let storedPassword = localStorage.getItem("signupPassword");
+
     // Password validation
     if (inppass.value.trim() === "") {
         errorpass.innerHTML = "Please enter the password";
+        inppass.style.border = "2px solid red";
+        shakeInput(inppass);
+        isValid = false;
+    } else if (inpemail.value.trim() !== storedEmail || inppass.value.trim() !== storedPassword) {
+        errorpass.innerHTML = "Incorrect email or password!";
         inppass.style.border = "2px solid red";
         shakeInput(inppass);
         isValid = false;

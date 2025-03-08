@@ -92,6 +92,10 @@ let sub = (event) => {
 
     if (!isValid) return false;
 
+    // Store signup credentials in localStorage
+    localStorage.setItem("signupEmail", inpemail.value.trim());
+    localStorage.setItem("signupPassword", inppass.value.trim());
+
     // Show success message with SweetAlert
     Swal.fire({
         position: "center",
