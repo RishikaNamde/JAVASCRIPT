@@ -4,15 +4,15 @@ document.addEventListener("DOMContentLoaded", function () {
     // Fetch stored booking details
     let bookingDetails = JSON.parse(localStorage.getItem("bookings")) || [];
 
-    function renderTable() {
+    function renderTable(data) {
         bookingList.innerHTML = ""; // Clear previous data
 
-        if (bookingDetails.length === 0) {
+        if (!data || data.length === 0) {
             bookingList.innerHTML = `<tr><td colspan="7">No bookings available</td></tr>`;
             return;
         }
 
-        bookingDetails.forEach((booking, index) => {
+        data.forEach((booking, index) => {
             let row = document.createElement("tr");
             row.innerHTML = `
                 <td>${booking.name}</td>
@@ -30,9 +30,25 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    renderTable();
+    function setupPagination() {
+        if (bookingDetails.length === 0) {
+            renderTable([]);
+            return;
+        }
 
-    // Function to update a booking
+        $('#pagination-container').pagination({
+            dataSource: bookingDetails,
+            pageSize: 5,
+            showGoInput: true,
+            showGoButton: true,
+            callback: function (data, pagination) {
+                renderTable(data);
+            }
+        });
+    }
+
+    setupPagination(); // Call pagination on load
+
     window.updateBooking = (index) => {
         let booking = bookingDetails[index];
 
@@ -63,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 bookingDetails[index] = result.value;
                 localStorage.setItem("bookings", JSON.stringify(bookingDetails));
                 Swal.fire("Updated!", "Your booking has been updated.", "success");
-                renderTable();
+                setupPagination();
             }
         });
     };
@@ -87,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.deleteBooking = (index) => {
         bookingDetails.splice(index, 1);
         localStorage.setItem("bookings", JSON.stringify(bookingDetails));
-        renderTable();
+        setupPagination();
         Swal.fire("Deleted!", "Your booking has been deleted.", "success");
     };
 

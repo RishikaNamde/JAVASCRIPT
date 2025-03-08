@@ -115,3 +115,35 @@ let customIndex = 0;
         document.getElementById('backToTop').addEventListener('click', function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+let logout=()=>{
+    localStorage.clear()
+}
+document.addEventListener("DOMContentLoaded", function () {
+    const bookNowButtons = document.querySelectorAll(".book-now-btn"); // Selects the correct button class
+
+    bookNowButtons.forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default link behavior
+            
+            let user = localStorage.getItem("user"); // Check if user is logged in
+            console.log("User data from localStorage:", user); // Debugging log
+
+            if (!user) { // If user is not logged in
+                Swal.fire({
+                    title: "Login Required!",
+                    text: "You need to log in before booking.",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Login Now",
+                    cancelButtonText: "Cancel"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "/FLIGHT_BOOKING/login.html"; // Redirect to login page
+                    }
+                });
+            } else {
+                window.location.href = "/booknow"; // Redirect to booking page
+            }
+        });
+    });
+});

@@ -38,18 +38,21 @@ let login = (event) => {
 
     if (!isValid) return false;
 
+    // Store user login status
+    localStorage.setItem("loggedInUser", inpemail.value.trim());
+
     // Show success message using SweetAlert
     Swal.fire({
         icon: "success",
         title: "Login Successful!",
-        text: "Redirecting to Home page...",
+        text: "Redirecting to Booking Page...",
         timer: 1500,
         showConfirmButton: false
     });
 
-    // Redirect to home page after 1.5 seconds
+    // Redirect to booking page after 1.5 seconds
     setTimeout(() => {
-        window.location.href = "./home.html";
+        window.location.href = "booknow.html";  // Redirecting to booking page
     }, 1600);
 
     return true;

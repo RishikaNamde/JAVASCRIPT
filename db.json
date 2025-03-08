@@ -1,0 +1,14 @@
+{
+    "bookings": [
+      {
+        "id": 1,
+        "name": "John Doe",
+        "email": "john@example.com",
+        "departure": "New York",
+        "destination": "Los Angeles",
+        "date": "2025-03-10",
+        "flightClass": "Economy"
+      }
+    ]
+  }
+  

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.css" integrity="sha512-TH+vnrhByFI2RzNvaHSqt6EwoJ9Bp+yGAGTWp84qTuTx315ebnypxtyGHpli55Rm4N4J+N/0W9xAL2b5RZ2ZSA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles.css">
 </head>
 <style>
@@ -130,14 +131,16 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody id="booking-list">
-                <!-- Bookings will be added dynamically here -->
-            </tbody>
+            <tbody id="booking-list"></tbody>
         </table>
 
+        <div id="pagination-container"></div>
+        
         <a href="./booknow.html" class="add-booking-btn">Add Another Booking</a>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.min.js"></script>
     <script src="./confirmation.js"></script> 
     <script src="./vantaconfrim.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

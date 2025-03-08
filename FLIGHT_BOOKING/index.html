@@ -637,8 +637,29 @@ footer {
     background: linear-gradient(to bottom, #0e2b4b, #1E3A8A);
 
 }
+.logout button {
+    background-color: #2450e1;
+    color: white;
+    width: 80px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
+.logout button:hover {
+    background: linear-gradient(90deg, #ff6b00, #ffbb00) ;
+    transform: scale(1.05); /* Slightly increase the size */
+}
 
+.logout button:active {
+    background:linear-gradient(90deg, #ff6b00, #ffbb00);
+    ; /* Even darker when clicked */
+    transform: scale(0.98); /* Slight press effect */
+}
 
 
         
@@ -655,13 +676,17 @@ footer {
                 <h1>Rapid Wings</h1>
             </a>
             <ul class="nav-links" id="navLinks">
-                <li data-aos="fade-down" data-aos-duration="1000"><a href="./home.html">Home</a></li>
+                <li data-aos="fade-down" data-aos-duration="1000"><a href="./index.html">Home</a></li>
                 <li data-aos="fade-down" data-aos-duration="1000"><a href="/search">Search Flights</a></li>
                 <li data-aos="fade-down" data-aos-duration="1200"><a href="/manage">Manage Booking</a></li>
                 <li data-aos="fade-down" data-aos-duration="1400"><a href="/checkin">Check-in</a></li>
                 <li data-aos="fade-down" data-aos-duration="1600"><a href="/status">Flight Status</a></li>
                 <li data-aos="fade-down" data-aos-duration="1800"><a href="/deals">Deals & Offers</a></li>
                 <li data-aos="fade-down" data-aos-duration="2000"><a href="./SIGNUP.HTML" class="signin-btn">Sign In</a></li>
+                 <div class="logout">
+                    <button onclick="logout()">LogOut</button>
+                 </div>
+                
             </ul>
             <button class="menu-toggle" id="menuToggle">☰</button>
         </div>
@@ -928,6 +953,8 @@ footer {
 
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
