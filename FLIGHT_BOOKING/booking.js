@@ -35,14 +35,18 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "confirmation.html";
     });
 });
-let booknow=()=>{
-    if(localStorage.getItem("Name")){
-        location.href="booknow.html"
+let booknow = () => {
+    if (localStorage.getItem("loggedInUser")) {
+        location.href = "booknow.html";
+    } else {
+        Swal.fire({
+            icon: "warning",
+            title: "Login Required",
+            text: "Please login first to proceed with booking.",
+            confirmButtonText: "Go to Login"
+        }).then(() => {
+            location.href = "login.html"; // Redirect to login page
+        });
     }
-    else{
-        alert("please login first")
-    }
-}
-let logout=()=>{
-    localStorage.clear()
-}
+};
+
