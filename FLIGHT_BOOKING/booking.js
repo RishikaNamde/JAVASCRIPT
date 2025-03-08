@@ -45,7 +45,7 @@ let booknow = () => {
             text: "Please login first to proceed with booking.",
             confirmButtonText: "Go to Login"
         }).then(() => {
-            location.href = "login.html"; // Redirect to login page
+            location.href = "FLIGHT_BOOKING/login.html"; // Redirect to login page
         });
     }
 };
