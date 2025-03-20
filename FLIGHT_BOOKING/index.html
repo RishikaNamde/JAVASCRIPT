@@ -673,6 +673,61 @@ footer {
     ; /* Even darker when clicked */
     transform: scale(0.98); /* Slight press effect */
 }
+/* Default Navbar Styling */
+.navbar {
+    position: relative;
+    background-color: #333;
+    padding: 10px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999 !important; /* Ensures it's above everything */
+}
+
+/* Default Nav Links (Visible on Desktop) */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+/* Hide Hamburger Menu on Desktop */
+.menu-toggle {
+    display: none; /* Hidden by default */
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 99999 !important; /* Ensure button is clickable */
+}
+
+/* Mobile Styles: Show Hamburger Menu */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Show hamburger in mobile view */
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        width: 100%;
+        display: none; /* Hidden by default */
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+        z-index: 99999 !important; /* Make sure it's above Swiper */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+}
+
 
 
         

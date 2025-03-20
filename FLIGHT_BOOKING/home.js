@@ -150,3 +150,16 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", function () {
+    navLinks.classList.toggle("show");
+});
+
+// Ensure nav-links are always visible in desktop mode
+window.addEventListener("resize", function () {
+    if (window.innerWidth > 768) {
+        navLinks.classList.remove("show"); // Hide mobile menu when resizing back to desktop
+    }
+});
