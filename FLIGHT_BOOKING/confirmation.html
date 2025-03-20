@@ -6,142 +6,139 @@
     <title>Booking Confirmation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.css" integrity="sha512-TH+vnrhByFI2RzNvaHSqt6EwoJ9Bp+yGAGTWp84qTuTx315ebnypxtyGHpli55Rm4N4J+N/0W9xAL2b5RZ2ZSA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .confirmation-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            margin: auto;
+            position: relative;
+            z-index: 2;
+            overflow-x: auto;
+        }
+        h2 {
+            color: #333;
+        }
+        #search-box {
+            width: 100%;
+            max-width: 400px;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            min-width: 600px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background: #007bff;
+            color: white;
+        }
+        td {
+            background: #f9f9f9;
+        }
+        .update-btn, .delete-btn {
+            padding: 5px 10px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .update-btn {
+            background: #28a745;
+        }
+        .update-btn:hover {
+            background: #218838;
+        }
+        .delete-btn {
+            background: #dc3545;
+        }
+        .delete-btn:hover {
+            background: #c82333;
+        }
+        .add-booking-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .add-booking-btn:hover {
+            background: #0056b3;
+        }
+        #vanta-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        @media (max-width: 768px) {
+            .confirmation-container {
+                width: 95%;
+                padding: 15px;
+            }
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            .add-booking-btn {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+        }
+    </style>
 </head>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 20px;
-        margin: 0;
-        height: 100vh;
-        overflow: hidden;
-    }
-    
-    .confirmation-container {
-        background: rgba(255, 255, 255, 0.9);
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        width: 80%;
-        margin: auto;
-        position: relative;
-        z-index: 2;
-        overflow-x: auto;
-    }
-    
-    h2 {
-        color: #333;
-    }
-
-    #search-box {
-        width: 50%;
-        padding: 8px;
-        margin: 10px 0;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-    }
-    
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
-    
-    th, td {
-        border: 1px solid #ddd;
-        padding: 10px;
-        text-align: left;
-    }
-    
-    th {
-        background: #007bff;
-        color: white;
-    }
-    
-    td {
-        background: #f9f9f9;
-    }
-    
-    .update-btn {
-        padding: 5px 10px;
-        background: #28a745;
-        color: white;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-    }
-
-    .update-btn:hover {
-        background: #218838;
-    }
-
-    .delete-btn {
-        padding: 5px 10px;
-        background: #dc3545;
-        color: white;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-    }
-
-    .delete-btn:hover {
-        background: #c82333;
-    }
-
-    .add-booking-btn {
-        display: inline-block;
-        margin-top: 15px;
-        padding: 10px 20px;
-        background: #007bff;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        font-size: 16px;
-    }
-
-    .add-booking-btn:hover {
-        background: #0056b3;
-    }
-
-    #vanta-bg {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        z-index: 1;
-    }
-</style>
 <body>
     <div id="vanta-bg"></div>
     <div class="confirmation-container">
         <h2>Flight Booking Confirmation</h2>
-
         <input type="text" id="search-box" placeholder="Search by name" onkeyup="searchBookings()">
-
-        <table id="hello">
-            <thead>
-                <tr>
-                    <th>Full Name</th>
-                    <th>Email</th>
-                    <th>Departure</th>
-                    <th>Destination</th>
-                    <th>Departure Date</th>
-                    <th>Class</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="booking-list"></tbody>
-        </table>
-
+        <div style="overflow-x: auto;">
+            <table id="hello">
+                <thead>
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Departure</th>
+                        <th>Destination</th>
+                        <th>Departure Date</th>
+                        <th>Class</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="booking-list"></tbody>
+            </table>
+        </div>
         <div id="pagination-container"></div>
-        
         <a href="./booknow.html" class="add-booking-btn">Add Another Booking</a>
     </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.min.js"></script>
-    <script src="./confirmation.js"></script> 
+    <script src="./confirmation.js"></script>
     <script src="./vantaconfrim.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
